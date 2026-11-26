@@ -1122,3 +1122,133 @@ body {
   outline: 2px solid var(--lime);
   outline-offset: 3px;
 }
+
+/* ==========================================
+   AJUSTES RESPONSIVE
+   MENÚ OSCURO + TARJETAS DESLIZABLES
+========================================== */
+
+@media (max-width: 760px) {
+
+  /* MENÚ DESPLEGABLE EN MODO OSCURO */
+
+  :root[data-theme="dark"] .main-nav.open {
+    display: flex;
+    background: #191919 !important;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+  }
+
+  :root[data-theme="dark"] .main-nav.open a {
+    background: transparent !important;
+    color: var(--ink);
+  }
+
+
+  /* MAZO DE TARJETAS */
+
+  .service-cards {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    margin: 25px auto 0;
+    padding: 0 30px 30px 0;
+    box-sizing: border-box;
+    touch-action: pan-y;
+  }
+
+  .service-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 30px);
+    height: auto;
+    min-height: 260px;
+    padding: 18px;
+    box-sizing: border-box;
+    transform-origin: center center;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+    transition:
+      transform .35s cubic-bezier(.2,.8,.2,1),
+      box-shadow .35s ease,
+      opacity .25s ease;
+  }
+
+  /* Posición de cada tarjeta en el mazo */
+
+  .service-card:nth-child(1) {
+    z-index: 4;
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  .service-card:nth-child(2) {
+    z-index: 3;
+    transform: translate(8px, 8px) rotate(2deg);
+  }
+
+  .service-card:nth-child(3) {
+    z-index: 2;
+    transform: translate(16px, 16px) rotate(-2deg);
+  }
+
+  .service-card:nth-child(4) {
+    z-index: 1;
+    transform: translate(24px, 24px) rotate(3deg);
+  }
+
+  /* El contenido se muestra completo */
+
+  .service-card p,
+  .service-card-bottom > a {
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .service-card h2 {
+    font-size: clamp(20px, 6vw, 24px);
+    line-height: 1.1;
+  }
+
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 12px 0;
+  }
+
+  .service-card-bottom {
+    margin-top: auto;
+  }
+
+  /* Evita que hover o focus agranden las tarjetas */
+
+  .service-card:hover,
+  .service-card:focus-within,
+  .service-card.is-active {
+    height: auto;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Estado durante el arrastre */
+
+  .service-card.is-dragging {
+    z-index: 10;
+    cursor: grabbing;
+    transition: none;
+  }
+
+  .service-card.is-leaving {
+    pointer-events: none;
+  }
+
+  /* Espacio para que el mazo no se superponga con el resto */
+
+  .services-note {
+    margin-top: 30px;
+  }
+}
