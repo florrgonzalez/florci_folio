@@ -65,10 +65,13 @@ a {
 }
 
 .wordmark {
-  font-family: var(--serif);
-  font-size: 32px;
-  font-style: italic;
-  line-height: 1;
+  display: block;
+  width: 40px;
+  height: auto;
+}
+
+.logo-dark{
+  display: none;
 }
 
 .main-nav {
@@ -861,6 +864,12 @@ h1 span {
   --lime: #e7f68a;
   --lilac: #eee9ff;
   --blue: #dfe9ff;
+}
+:root[data-theme="dark"] .logo-light{
+  display: none;
+}
+:root[data-theme="dark"] .logo-dark{
+  display: block;
 }
 
 
