@@ -1006,13 +1006,14 @@ body {
 }
 
 :root[data-theme="dark"] .button-light {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--line);
+  background: #171715;
+  color: #ffffff;
+  border-color: #f3f0e9;
 }
 
 :root[data-theme="dark"] .button-light:hover {
   background: #292925;
+  color: #ffffff;
 }
 
 
